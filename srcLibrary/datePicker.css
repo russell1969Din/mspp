@@ -1,0 +1,167 @@
+#dateText {
+    clear:both;
+    float:left;
+    font-family:verdana;
+    font-size:16px;
+    color:green;
+    width:150px;
+    height:28px;
+    font-weight:bold;
+    padding-top:5px;
+    /*border:solid 2px orange;*/
+}
+
+
+#spaceInput {
+    float:left;
+    /*border:solid 2px green;*/
+    height:28px;
+    padding:0px;
+}
+
+
+#dateInput {
+    font-family:verdana;
+    font-size:16px;
+    height:20px;
+    width:120px;  
+    margin:0px;
+    border-radius:5px;
+}
+
+#datePicker {
+    clear:both;
+    float:left;
+    border:dotted 1px #000;
+    height:320px;
+    width:400px;
+    margin-left:150px;    
+    border-radius:8px;
+    background-color:#fff;
+    z-index:1000;
+    top:60px;
+    position:absolute;
+    -webkit-box-shadow: 7px 7px 12px 3px rgba(0,0,0,0.43); 
+    box-shadow: 7px 7px 12px 3px rgba(0,0,0,0.43);
+    display:none;
+}
+
+
+#dateHead {
+    margin: 3px 3px 3px 3px;
+    border-radius:8px;
+    height:50px;
+}
+
+#headLeft {
+    width:10%;
+    clear:both;
+    float:left;
+    background-color:#e9e9e9;
+    height:40px;
+    text-align:center;
+    border-radius:8px 0px 0px 8px;
+    padding-top:6px;
+    font-size:18px;
+}
+
+.getLeft, .getRight {
+    cursor:pointer;
+}
+
+
+#headTitle  {
+    width:80%;
+    float:left;
+    background-color:#e9e9e9;
+    height:40px;
+    text-align:center;
+    font-family:verdana;
+    font-size:18px;
+    font-weight:bold;
+    padding-top:6px;
+}
+
+#headRight  {
+    width:10%;
+    float:left;
+    background-color:#e9e9e9;
+    height:40px;
+    text-align:center;
+    border-radius:0px 8px 8px 0px;
+    padding-top:6px;
+    font-size:18px;
+}
+
+#dateSpace {
+    /*border:solid 1px red;*/
+    height:260px;
+}
+
+.cell-title {
+    width:50px;
+    float:left;
+    height:30px;
+    text-align:center;
+    margin:3px;
+    font-family:verdana;
+    font-size:20px;
+    font-weight:bold;
+    border:solid 0px;
+}
+
+.cell {
+    width:50px;
+    float:left;
+    height:30px;
+    text-align:right;
+    margin:3px;
+    font-family:verdana;
+    font-size:20px;
+    font-weight:normal;
+    border:solid 1px #000;
+    padding-right:7px;
+    background-color:#f1f1f1;
+    cursor:pointer;
+}
+
+
+.cellEmpty {
+    width:50px;
+    float:left;
+    height:30px;
+    margin:3px;
+    border:solid 0px;
+    background-color:#fff;
+    cursor: initial;
+}
+
+.cellFreeClick {
+    color: #cc0000;
+    cursor: pointer;
+}
+
+
+.cellFree {
+    color: #cc0000;
+    cursor: initial;
+}
+
+.cellCurrent {
+    font-weight:bold;
+}
+
+@media screen and (max-width: 400px) {
+    #datePicker {
+        top:90px;
+        margin-left:0px;  
+        width:270px;
+        background-color:orange;
+    }    
+    
+    .cell {
+        width:32px;    
+        
+    }
+}
+
