@@ -103,18 +103,18 @@ export class DPicker  {
         //SK Zobrazenie hlavičky datepicker
         //EN Display the datepicker header  
         $('#dateHead').append('<div id="headLeft" ><i class="fas fa-chevron-circle-left getLeft"></i></div>');
-        this.getLeft();
+        this.getLeft(this.aDayNames);
         $('#dateHead').append('<div id="headTitle" >Február 2021</div>');
         $('#dateHead').append('<div id="headRight" ><i class="fas fa-chevron-circle-right getRight"></i></i></div>');
-        this.getRight();
-        $('#datePicker').append('<div id="dateSpace" ></div>');
+        this.getRight(this.aDayNames);
+        $('#datePicker').append('<div id="dateSpace" ></div>');      
         
         //SK Volanie metódy - zobrazenie hlavičky so skratkami dní v týždni pre datepicker
         //EN Method call - display header with abbreviations of days of the week for datepicker  
-        this.dateTitleIn();
+        this.dateTitleIn(this.aDayNames);
         //SK Volanie metódy - zobrazenie buniek jednotlivých dní v aktuálnom nesiaci pre datepicker
         //EN Method call - display of cells of individual days in the current month for the datepicker  
-        this.dateSpaceFill();
+        this.dateSpaceFill(this.aDayNames);
     }
     
     //SK Metóda so všeobecnou deklaráciou objektu pre prácu s dátumom podľa aktálneho nastavenia
@@ -132,7 +132,7 @@ export class DPicker  {
     
     //SK Vytvorenie zakladného zobrazenia datePicker
     //EN Create a basic datePicker view  
-    dateSpaceFill() {
+    dateSpaceFill(aDayNames) {
         //SK Inicializácia dátumových údajov pre datepicker
         //EN Initialize date data for datepicker  
         let dateCurrent = new Date();
@@ -151,12 +151,13 @@ export class DPicker  {
 
         let cellNum = 1;
         let dayInDate = 1;
-        let isBreak;
+        let isBreak;      
         let inLine = 1;
         
         //SK Inicializácia / vyprázdnenie datepicker
         //EN Initialize / empty datepicker  
         $('#dateSpace').html('');
+        this.dateTitleIn(aDayNames);
         for(let line=1;line<7;++line) {
             $('#dateSpace').append('<div id="line-'+line+'"></div>')
             isBreak = false;
@@ -203,27 +204,26 @@ export class DPicker  {
         //SK Modulacia výšky datepicker podľa počtu obrazovaných riadkov v konkrétnom mesiaci
         //EN Modulation of the height of the datepicker according to the number of displayed lines in a specific month  
         $('#dateSpace').css('height', (inLine*39) + 'px');
-        $('#datePicker').css('height', 50+(inLine*39) + 'px');
+        $('#datePicker').css('height', 90+(inLine*39) + 'px');
     };
 
     //SK Metóda na zobrazenie skratiek dní v týždni ako boli deklarované pri volaní triedy datePicker
     //EN Method for displaying the abbreviations of the days of the week as declared when calling the datePicker class  
-    dateTitleIn()   {
-
-        let aDayNames = this.aDayNames;
+    dateTitleIn(aDayNames)   {
+        //let aDayNames = aDayNames;
         
         let cell = 1
-        $('#dateSpace').append('<div id="line-title"></div>')
-        
+        $('#dateSpace').append('<div id="line-title" ></div>')
         for(let x=0;x<7;++x) {
             $('#line-title').append('<div id="cell-title'+cell+'" class="cell-title">'+aDayNames[x]+'</div>')
             ++cell;
         }
+      
     }
 
     //SK Metóda zabezpečujúca služby keď sa kliknutím myšky vrátime o mesiac späť
     //EN A method of providing services when we return a month back by clicking the mouse  
-    getLeft() {
+    getLeft(aDayNames) {
         //SK Inicializujeme potvrdenie ikony
         //EN Initializing the icon confirmation  
         $('.getLeft').unbind();
@@ -253,13 +253,13 @@ export class DPicker  {
             let dPicker  = new DPicker(); 
             //SK Následne aktualizujeme obsah v datepicker 
             //EN Then we update the content in the datepicker 
-            dPicker.dateSpaceFill();
+            dPicker.dateSpaceFill(aDayNames);
         });
     }
 
     //SK Metóda zabezpečujúca služby keď sa kliknutím myšky posunieme na ďalší mesiac 
     //EN A method of providing services when we move to the next month by clicking the mouse  
-    getRight() {
+    getRight(aDayNames) {
         //SK Inicializujeme potvrdenie ikony
         //EN Initializing the icon confirmation 
         $('.getRight').unbind();
@@ -289,7 +289,7 @@ export class DPicker  {
             let dPicker  = new DPicker(); 
             //SK Aktualizujeme obsah v datepicker 
             //EN We update the content in the datepicker  
-            dPicker.dateSpaceFill();
+            dPicker.dateSpaceFill(aDayNames);
         });
     }
 

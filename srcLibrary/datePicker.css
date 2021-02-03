@@ -156,8 +156,12 @@
         top:90px;
         margin-left:0px;  
         width:270px;
-        background-color:orange;
     }    
+    
+    .cell-title {
+        font-size:16px;
+        width:30px;
+    }
     
     .cell {
         width:32px;    
